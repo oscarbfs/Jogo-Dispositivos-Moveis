@@ -4,7 +4,7 @@
 function Painel(context, vaca) {
    this.context = context;
    this.vaca = vaca;
-   this.spritesheet = new Spritesheet(context, vaca.imagem, 3, 2);
+   this.spritesheet = new Spritesheet(context, vaca.imagem, 4, 4);
    this.pontuacao = 0;
 };
 

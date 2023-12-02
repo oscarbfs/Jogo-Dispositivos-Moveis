@@ -2,7 +2,7 @@
 <html>
    
 <head>
-   <title>Jogo de Nave</title>
+   <title>Jogo de Vaca</title>
    <script src="animacao.js"></script>
    <script src="teclado.js"></script>
    <script src="colisor.js"></script>
@@ -19,12 +19,13 @@
       display: none;
    
       /* Cores e fundo */
-      color: green;
-      background: url(img/botao-jogar.png);
+      color: white;
+      background: url(img/cerca.png);
          
       /* Fonte */
       font-size: 20px;
       font-family: sans-serif;
+      font-weight: 500;
       
       /* Sem sublinhado e com sombra */
       text-decoration: none;
@@ -32,13 +33,13 @@
          
       /* Posicionamento */
       position: absolute;
-      left: 220px;
+      left: 180px;
       top: 330px;
 
       /* A imagem do botão é 72x72, descontamos os paddings */
-      width: 52px;
-      height: 26px;
-      padding: 23px 10px;
+      width: 234px;
+      height: 120px;
+      padding: 0px 0px;
    }
    </style>
 </head>
@@ -137,7 +138,7 @@
          campo = new Fundo(context, imagens.campo);
          arbustos = new Fundo(context, imagens.arbustos);
          nuvens = new Fundo(context, imagens.nuvens);
-         vaca = new Nave(context, teclado, imagens.vaca, 
+         vaca = new Vaca(context, teclado, imagens.vaca, 
                          imagens.explosao);
          painel = new Painel(context, vaca);
          
@@ -164,7 +165,7 @@
          arbustos.velocidade = 150;
          nuvens.velocidade = 500;
          
-         // Nave
+         // Vaca
          vaca.posicionar();
          vaca.velocidade = 200;
          

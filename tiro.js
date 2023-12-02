@@ -47,7 +47,7 @@ Tiro.prototype = {
       }
    },
    desenhar: function() {
-      //imgNave.src = 'image/vaca.png'
+      //imgVaca.src = 'image/vaca.png'
       var ctx = this.context;
       //Salvar a cofiguração e subir na pilha
       ctx.save();
