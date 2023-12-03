@@ -12,7 +12,7 @@ function Tiro(context, vaca) {
    // Posicionar o tiro no bico da vaca | Começa na posição de x e centraliza o tiro no bico da vaca
    this.largura = 3;
    this.altura = 10;   
-   this.x = vaca.x + 18;  // 36 / 2
+   this.x = vaca.x + 60;  // 36 / 2
    this.y = vaca.y - this.altura;
    this.velocidade = 400;
    

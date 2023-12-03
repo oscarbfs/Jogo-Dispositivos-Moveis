@@ -46,14 +46,14 @@ Vaca.prototype = {
          this.x -= incremento;
          
       if (this.teclado.pressionada(SETA_DIREITA) && 
-               this.x < this.context.canvas.width - 36)
+               this.x < this.context.canvas.width - 100)
          this.x += incremento;
          
       if (this.teclado.pressionada(SETA_ACIMA) && this.y > 0)
          this.y -= incremento;
          
       if (this.teclado.pressionada(SETA_ABAIXO) &&
-               this.y < this.context.canvas.height - 48)
+               this.y < this.context.canvas.height - 120)
          this.y += incremento;
    },//Não esquecer dessa vírgula sempre que for criar um novo método.
    /*Tratando a spritesheet da vaca:
@@ -83,9 +83,7 @@ Vaca.prototype = {
       // Estes valores vão sendo ajustados aos poucos
       var rets = 
       [ 
-         {x: this.x+2, y: this.y+19, largura: 9, altura: 13},
-         {x: this.x+13, y: this.y+3, largura: 10, altura: 33},
-         {x: this.x+25, y: this.y+19, largura: 9, altura: 13}
+         {x: this.x+50, y: this.y+40, largura: 30, altura: 60},
       ];
       
       // Desenhando os retângulos para visualização | Comentar após concluir modificações
@@ -141,8 +139,8 @@ Vaca.prototype = {
    há duas colunas que animam o fogo na cauda. */
    posicionar: function() {
       var canvas = this.context.canvas;
-      this.x = canvas.width / 2 - 18;  // 36 / 2
-      this.y = canvas.height - 48;
+      this.x = canvas.width / 2 - 100;  // 36 / 2
+      this.y = canvas.height - 100;
    }
 }
 

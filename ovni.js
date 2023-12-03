@@ -45,9 +45,8 @@ Ovni.prototype = {
       // Estes valores vão sendo ajustados aos poucos
       var rets = 
       [ 
-         {x: this.x+20, y: this.y+1, largura: 25, altura: 10},
-         {x: this.x+2, y: this.y+11, largura: 60, altura: 12},
-         {x: this.x+20, y: this.y+23, largura: 25, altura: 7},
+         {x: this.x+30, y: this.y+35, largura: 20, altura: 30},
+         {x: this.x+40, y: this.y+60, largura: 15, altura: 25},
       ];
       
       // Desenhando os retângulos para visualização | Comentar após realizar modificações

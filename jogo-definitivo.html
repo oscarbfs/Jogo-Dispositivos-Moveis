@@ -30,23 +30,26 @@
       /* Sem sublinhado e com sombra */
       text-decoration: none;
       text-shadow: 2px 2px 5px black;
+      display: grid;
+      place-items: center;
+      text-align: center;
          
       /* Posicionamento */
       position: absolute;
-      left: 180px;
+      left: 130px;
       top: 330px;
 
       /* A imagem do botão é 72x72, descontamos os paddings */
       width: 234px;
-      height: 120px;
-      padding: 0px 0px;
+      height: 20px;
+      padding: 50px 0px;
    }
    </style>
 </head>
 
 <body>
    <!--Tag | É obrigatório ter width (largura) e height(altura)-->
-   <canvas id="canvas_animacao" width="500" height="500"></canvas>
+   <canvas id="canvas_animacao" width="500" height="700"></canvas>
    
    <a id="link_jogar" href="javascript: iniciarJogo()">Jogar</a>
    
@@ -73,12 +76,12 @@
       function carregarImagens() {
          // Objeto contendo os nomes das imagens
          imagens = {
-            campo:   'fundo-campo.png', 
+            campo:    'fundo-campo.png', 
             arbustos: 'fundo-arbustos.png', 
             nuvens:   'fundo-nuvens.png', 
             vaca:     'vaca-spritesheet.png', 
-            ovni:     'ovni.png',
-            explosao: 'explosao.png'
+            ovni:     'faca-de-acougueiro.png',
+            explosao: 'carne.png'
          };
          /*Temos que esperar todas as imagens serem carregadas.
         Isso é feito através do evento 'onload'.
@@ -271,7 +274,7 @@
       
       function carregarMusicas() {
          musicaAcao = new Audio();
-         musicaAcao.src = 'snd/musica-acao.mp3';
+         musicaAcao.src = 'snd/musica-country.mp3';
          musicaAcao.volume = 0.8;
          musicaAcao.loop = true;
          musicaAcao.load();
