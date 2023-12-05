@@ -6,15 +6,22 @@ SOM_TIRO.src = 'snd/tiro.mp3';
 SOM_TIRO.volume = 0.2;
 SOM_TIRO.load();
 
-function Tiro(context, vaca) {
+function Tiro(context, vaca, teclado) {
    this.context = context;
    this.vaca = vaca;
    // Posicionar o tiro no bico da vaca | Começa na posição de x e centraliza o tiro no bico da vaca
+   this.velocidade = 400;
    this.largura = 3;
    this.altura = 10;   
-   this.x = vaca.x + 60;  // 36 / 2
-   this.y = vaca.y - this.altura;
-   this.velocidade = 400;
+   this.x = vaca.x + 65;  // 36 / 2
+   this.y = vaca.y + 35;
+   if (teclado.pressionada(SETA_ESQUERDA)) {
+      this.x = vaca.x + 15;
+      this.y = vaca.y + 70;
+   } else if(teclado.pressionada(SETA_DIREITA)) {
+      this.x = vaca.x + 115;
+      this.y = vaca.y + 70;
+   }
    
    this.cor = 'yellow';
    SOM_TIRO.currentTime = 0.0;

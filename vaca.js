@@ -74,7 +74,7 @@ Vaca.prototype = {
       this.spritesheet.proximoQuadro();
    },//Não esquecer dessa vírgula sempre que for criar um novo método.
    atirar: function() {
-      var t = new Tiro(this.context, this);
+      var t = new Tiro(this.context, this, this.teclado);
       this.animacao.novoSprite(t);
       this.colisor.novoSprite(t);
    },//Não esquecer dessa vírgula sempre que for criar um novo método.
@@ -85,6 +85,13 @@ Vaca.prototype = {
       [ 
          {x: this.x+50, y: this.y+40, largura: 30, altura: 60},
       ];
+      
+      if (this.teclado.pressionada(SETA_ESQUERDA) || this.teclado.pressionada(SETA_DIREITA)) {
+         rets[0].x = this.x+30;
+         rets[0].y = this.y+50;
+         rets[0].largura = 60;
+         rets[0].altura = 30;
+      }
       
       // Desenhando os retângulos para visualização | Comentar após concluir modificações
       var ctx = this.context;
@@ -107,13 +114,13 @@ Vaca.prototype = {
          this.colisor.excluirSprite(this);
          this.colisor.excluirSprite(outro);
          
-         var exp1 = new Explosao(this.context, this.imgExplosao,
+         var exp1 = new ExplosaoCarne(this.context, this.imgExplosao,
                                  this.x, this.y);
-         var exp2 = new Explosao(this.context, this.imgExplosao,
-                                 outro.x, outro.y);
+         // var exp2 = new Explosao(this.context, this.imgExplosao,
+         //                         outro.x, outro.y);
          
          this.animacao.novoSprite(exp1);
-         this.animacao.novoSprite(exp2);
+         // this.animacao.novoSprite(exp2);
          
          var vaca = this;
          exp1.fimDaExplosao = function() {

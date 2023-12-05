@@ -11,6 +11,7 @@
    <script src="ovni.js"></script>
    <script src="tiro.js"></script>
    <script src="spritesheet.js"></script>
+   <script src="explosao_carne.js"></script>
    <script src="explosao.js"></script>
    <script src="painel.js"></script>
    <style>
@@ -81,7 +82,8 @@
             nuvens:   'fundo-nuvens.png', 
             vaca:     'vaca-spritesheet.png', 
             ovni:     'faca-de-acougueiro.png',
-            explosao: 'carne.png'
+            explosao_carne: 'carne.png',
+            explosao: 'explosao.png'
          };
          /*Temos que esperar todas as imagens serem carregadas.
         Isso é feito através do evento 'onload'.
@@ -142,7 +144,7 @@
          arbustos = new Fundo(context, imagens.arbustos);
          nuvens = new Fundo(context, imagens.nuvens);
          vaca = new Vaca(context, teclado, imagens.vaca, 
-                         imagens.explosao);
+                         imagens.explosao_carne);
          painel = new Painel(context, vaca);
          
          // Ligações entre objetos
