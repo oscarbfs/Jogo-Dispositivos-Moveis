@@ -107,8 +107,8 @@ Vaca.prototype = {
       return rets;
    },//Não esquecer dessa vírgula sempre que for criar um novo método.
    colidiuCom: function(outro) {
-      // Se colidiu com um Ovni...
-      if (outro instanceof Ovni) {
+      // Se colidiu com um Faca...
+      if (outro instanceof Faca) {
          this.animacao.excluirSprite(this);
          this.animacao.excluirSprite(outro);
          this.colisor.excluirSprite(this);

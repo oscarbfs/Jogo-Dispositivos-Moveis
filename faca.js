@@ -1,7 +1,7 @@
-//Arquivo: ovni.js
-//Função construtura para objeto ovni
+//Arquivo: faca.js
+//Função construtura para objeto faca
 
-function Ovni(context, imagem, imgExplosao) {
+function Faca(context, imagem, imgExplosao) {
    this.context = context;
    this.imagem = imagem;
    this.x = 0;
@@ -10,7 +10,7 @@ function Ovni(context, imagem, imgExplosao) {
    this.imgExplosao = imgExplosao;
 }
 
-/*Devemos cronometrar o movimento do 'Ovni' aplicando no método 
+/*Devemos cronometrar o movimento do 'Faca' aplicando no método 
 'atualizar', a fórmula a seguir: 
 
 O incremento da posição do sprite, em pixels = 
@@ -23,9 +23,9 @@ Sendo:
 é em milissegundos, dividimos esse valor por 1000).
 
 Podemos ajustar novas velocidades com valores maiores em 
-'ovni.velocidade' da página HTML.*/
+'faca.velocidade' da página HTML.*/
 
-Ovni.prototype = {
+Faca.prototype = {
    atualizar: function() {
       this.y += 
          this.velocidade * this.animacao.decorrido / 1000;

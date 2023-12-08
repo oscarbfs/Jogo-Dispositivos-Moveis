@@ -8,7 +8,7 @@
    <script src="colisor.js"></script>
    <script src="fundo.js"></script>
    <script src="vaca.js"></script>
-   <script src="ovni.js"></script>
+   <script src="faca.js"></script>
    <script src="tiro.js"></script>
    <script src="spritesheet.js"></script>
    <script src="explosao_carne.js"></script>
@@ -81,7 +81,7 @@
             arbustos: 'fundo-arbustos.png', 
             nuvens:   'fundo-nuvens.png', 
             vaca:     'vaca-spritesheet.png', 
-            ovni:     'faca-de-acougueiro.png',
+            faca:     'faca-de-acougueiro.png',
             explosao_carne: 'carne.png',
             explosao: 'explosao.png'
          };
@@ -187,9 +187,9 @@
          
          // Pontuação
          colisor.aoColidir = function(o1, o2) {
-            // Tiro com Ovni
-            if ( (o1 instanceof Tiro && o2 instanceof Ovni) ||
-                 (o1 instanceof Ovni && o2 instanceof Tiro) )
+            // Tiro com Faca
+            if ( (o1 instanceof Tiro && o2 instanceof Faca) ||
+                 (o1 instanceof Faca && o2 instanceof Tiro) )
                painel.pontuacao += 10;
          }
       }
@@ -200,20 +200,20 @@
       No método processar desse objeto, criamos um inimigo a cada 
       segundo. Mas, para isso, necessitamos saber o instante em que o 
       último inimigo foi gerado. Este instante é guardado no atributo 
-      'ultimoOvni' e atualizado quando o tempo decorrido ultrapassar 
+      'ultimoFaca' e atualizado quando o tempo decorrido ultrapassar 
       1000 milissegundos.*/
 
       function criacaoInimigos() {
          criadorInimigos = {
-            ultimoOvni: new Date().getTime(),
+            ultimoFaca: new Date().getTime(),
             
             processar: function() {
                var agora = new Date().getTime();
-               var decorrido = agora - this.ultimoOvni;
+               var decorrido = agora - this.ultimoFaca;
                
                if (decorrido > 1000) {
-                  novoOvni();
-                  this.ultimoOvni = agora;
+                  novoFaca();
+                  this.ultimoFaca = agora;
                }
             }
          };
@@ -222,27 +222,27 @@
       }
       
       /*Se passar um segundo desde a geração do último inimigo, é 
-      chamada a função 'novoOvni'. Ela gera inimigos em posições e 
+      chamada a função 'novoFaca'. Ela gera inimigos em posições e 
       com velocidades aleatórias.*/
       
-      function novoOvni() {
-         var imgOvni = imagens.ovni;
-         var ovni = new Ovni(context, imgOvni, imagens.explosao);
+      function novoFaca() {
+         var imgFaca = imagens.faca;
+         var faca = new Faca(context, imgFaca, imagens.explosao);
 
          // Mínimo: 500; máximo: 1000
-         ovni.velocidade = 
+         faca.velocidade = 
             Math.floor( 500 + Math.random() * (1000 - 500 + 1) );
          
-         // Mínimo: 0; máximo: largura do canvas - largura do ovni   
-         ovni.x = 
+         // Mínimo: 0; máximo: largura do canvas - largura do faca   
+         faca.x = 
             Math.floor(Math.random() * 
-                       (canvas.width - imgOvni.width + 1) );
+                       (canvas.width - imgFaca.width + 1) );
                   
          // Descontar a altura
-         ovni.y = -imgOvni.height;
+         faca.y = -imgFaca.height;
          
-         animacao.novoSprite(ovni);
-         colisor.novoSprite(ovni);
+         animacao.novoSprite(faca);
+         colisor.novoSprite(faca);
       }
       
       function pausarJogo() {
@@ -258,7 +258,7 @@
             context.restore();
          }
          else {
-            criadorInimigos.ultimoOvni = new Date().getTime();
+            criadorInimigos.ultimoFaca = new Date().getTime();
             animacao.ligar();
             ativarTiro(true);
          }
@@ -288,7 +288,7 @@
       }
       
       function iniciarJogo() {
-         criadorInimigos.ultimoOvni = new Date().getTime();
+         criadorInimigos.ultimoFaca = new Date().getTime();
       
          // Tiro
          ativarTiro(true);
@@ -344,7 +344,7 @@
       
       function removerInimigos() {
          for (var i in animacao.sprites) {
-            if (animacao.sprites[i] instanceof Ovni)
+            if (animacao.sprites[i] instanceof Faca)
                animacao.excluirSprite(animacao.sprites[i]);
          }
       }
