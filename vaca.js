@@ -96,13 +96,13 @@ Vaca.prototype = {
       // Desenhando os retângulos para visualização | Comentar após concluir modificações
       var ctx = this.context;
       
-      for (var i in rets) {
-         ctx.save();
-         ctx.strokeStyle = 'yellow';
-         ctx.strokeRect(rets[i].x, rets[i].y, rets[i].largura, 
-                        rets[i].altura);
-         ctx.restore();
-      }
+      // for (var i in rets) {
+      //    ctx.save();
+      //    ctx.strokeStyle = 'yellow';
+      //    ctx.strokeRect(rets[i].x, rets[i].y, rets[i].largura, 
+      //                   rets[i].altura);
+      //    ctx.restore();
+      // }
       
       return rets;
    },//Não esquecer dessa vírgula sempre que for criar um novo método.
